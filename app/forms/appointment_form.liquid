@@ -1,0 +1,29 @@
+---
+name: appointment_form
+resource: users
+resource_owner: anyone
+redirect_to: /screening
+fields:
+  properties:
+    email:
+      validation:
+        presence:
+          message: Email cannot be empty
+        email: true
+    name:
+        validation: { presence: true}
+email_notifications:
+    - screen_tool
+flash_notice: Thank you
+---
+
+{% form html-class: '' %}
+    {% assign f = form.fields.properties %}
+    {% include 'forms/errors' %}
+
+    <!-- <input id="email" placeholder="email" title="Email" type="email" value={{f.email.email}}> -->
+    {% include 'forms/input', field: f.email, type: 'email', placeholder: 'Please enter your email.', label: false  %}
+    {% include 'forms/input', type: 'text', field: f.name, placeholder: 'Please enter your name.'   %}
+
+    <button class="button hollow">Send</button>
+{% endform %}

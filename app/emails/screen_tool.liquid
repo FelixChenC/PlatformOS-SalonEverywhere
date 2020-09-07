@@ -1,0 +1,20 @@
+---
+to: '{{ form.properties.email }}'
+from: 'platformOS <noreply@platform-os.com>'
+reply_to: '{{ form.model.customization.properties.email }}'
+subject:  SalonEverywhere Pre-Appointment
+---
+{% assign properties = form.properties %}
+
+<h2>Hello,
+
+    {{properties.name}}</h2>
+
+<br>
+
+<h3>Before you confirm your booking.</h3>
+<p>Please Finish the questionnaire by clicking the following link:</p>
+{% assign url = 'https://saloneverywhere-pre-appointment-covid-screening-tool.staging.oregon.platform-os.com/screening' %}
+<p>
+    <a href="{{ url }}">{{ url }}</a>
+</p>
