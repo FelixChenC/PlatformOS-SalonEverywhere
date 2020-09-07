@@ -1,5 +1,5 @@
 mutation notify($data: HashObject) {
-  email_send(template: { name: "screenTool" }, data: $data) {
+  email_send(template: { name: "screen_tool" }, data: $data) {
     errors {
       message
     }
